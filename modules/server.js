@@ -1,7 +1,9 @@
 import express from 'express';
+import path from 'path';
 import { DataBase } from '../src/scripts/db.js';
 
 const db = new DataBase;
+const __dirname = process.cwd();
 
 const server = express();
 
@@ -11,8 +13,8 @@ server.listen(8080, () => {
   console.log('Servidor Conectado!');
 });
 
-server.get('/index', (req, res) => {
-  return res.status(200).send();
+server.get('/', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, 'routes/profiles.html'));
 });
 
 server.get('/profiles', (req, res) => {

@@ -9,7 +9,7 @@ export class DataBase {
     };
 
     getList(){
-        return Array.from(this.#profileList);
+        return Array.from(this.#profileList.values());
     }
 
     update(id, video){
